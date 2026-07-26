@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>August 2026 Calendar</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calendar {
+            background-color: white;
+            width: 350px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .calendar-header {
+            background-color: #ffffff;
+            color: #333;
+            text-align: center;
+            padding: 24px 20px;
+            font-size: 1.5em;
+            font-weight: 700;
+            border-bottom: 2px solid #f0f0f0;
+            letter-spacing: 1px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            padding: 20px;
+            gap: 8px;
+            text-align: center;
+        }
+
+        .day-name {
+            font-weight: 600;
+            color: #a0a0a0;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .day {
+            position: relative;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            color: #444;
+            font-size: 1em;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .day:not(.empty):not(.heart-date):hover {
+            background-color: #f0f4f8;
+            cursor: pointer;
+        }
+
+        /* Special styling for the 8th */
+        .heart-date {
+            color: white;
+            font-weight: 700;
+        }
+
+        .heart-icon {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            fill: #e74c3c; /* Red color */
+            z-index: 0;
+            top: 50%;
+            left: 50%;
+            /* Slight vertical adjustment to center the number visually inside the heart */
+            transform: translate(-50%, -48%); 
+        }
+
+        .heart-date span {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calendar">
+        <div class="calendar-header">
+            August 2026
+        </div>
+        
+        <div class="calendar-grid">
+            <!-- Days of the week -->
+            <div class="day-name">Sun</div>
+            <div class="day-name">Mon</div>
+            <div class="day-name">Tue</div>
+            <div class="day-name">Wed</div>
+            <div class="day-name">Thu</div>
+            <div class="day-name">Fri</div>
+            <div class="day-name">Sat</div>
+
+            <!-- Empty slots for the days before August 1st (August 2026 starts on a Saturday) -->
+            <div class="day empty"></div>
+            <div class="day empty"></div>
+            <div class="day empty"></div>
+            <div class="day empty"></div>
+            <div class="day empty"></div>
+            <div class="day empty"></div>
+
+            <!-- August Dates -->
+            <div class="day">1</div>
+            <div class="day">2</div>
+            <div class="day">3</div>
+            <div class="day">4</div>
+            <div class="day">5</div>
+            <div class="day">6</div>
+            <div class="day">7</div>
+            
+            <!-- August 8th with the Red Heart -->
+            <div class="day heart-date">
+                <svg class="heart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <span>8</span>
+            </div>
+
+            <div class="day">9</div>
+            <div class="day">10</div>
+            <div class="day">11</div>
+            <div class="day">12</div>
+            <div class="day">13</div>
+            <div class="day">14</div>
+            <div class="day">15</div>
+            <div class="day">16</div>
+            <div class="day">17</div>
+            <div class="day">18</div>
+            <div class="day">19</div>
+            <div class="day">20</div>
+            <div class="day">21</div>
+            <div class="day">22</div>
+            <div class="day">23</div>
+            <div class="day">24</div>
+            <div class="day">25</div>
+            <div class="day">26</div>
+            <div class="day">27</div>
+            <div class="day">28</div>
+            <div class="day">29</div>
+            <div class="day">30</div>
+            <div class="day">31</div>
+            
+            <!-- Empty slots to complete the final row -->
+            <div class="day empty"></div>
+            <div class="day empty"></div>
+            <div class="day empty"></div>
+            <div class="day empty"></div>
+            <div class="day empty"></div>
+        </div>
+    </div>
+
+</body>
+</html>
