@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Thiệp Tốt Nghiệp Cute</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    font-family:'Quicksand', sans-serif;
+
+    background:linear-gradient(
+        135deg,
+        #ffd6e7,
+        #ffeef5,
+        #fff7fb
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+/* sao lấp lánh */
+
+.star{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+    0%{opacity:0.2; transform:scale(1);}
+    50%{opacity:1; transform:scale(1.8);}
+    100%{opacity:0.2; transform:scale(1);}
+}
+
+/* tim bay */
+
+.heart{
+    position:absolute;
+    bottom:-20px;
+    font-size:20px;
+    animation: floatHeart linear infinite;
+    opacity:0.7;
+}
+
+@keyframes floatHeart{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* card */
+
+.card{
+
+    width:850px;
+    max-width:95%;
+
+    background:rgba(255,255,255,0.5);
+
+    backdrop-filter:blur(10px);
+
+    border:3px solid rgba(255,255,255,0.7);
+
+    border-radius:35px;
+
+    padding:40px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 40px rgba(255,105,180,0.2);
+
+    animation: floatCard 4s ease-in-out infinite;
+
+    position:relative;
+    z-index:10;
+}
+
+@keyframes floatCard{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+.badge{
+    font-size:70px;
+    margin-bottom:10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+h1{
+    font-size:58px;
+    color:#ff4f93;
+    margin-bottom:15px;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,0.9);
+}
+
+.subtitle{
+    font-size:22px;
+    color:#555;
+    margin-bottom:25px;
+    line-height:1.7;
+}
+
+/* ảnh */
+
+.photo-box{
+    margin:25px auto;
+}
+
+.photo-box img{
+
+    width:260px;
+    height:260px;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    border:8px solid white;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.15);
+
+    animation: photoFloat 3s ease-in-out infinite;
+}
+
+@keyframes photoFloat{
+    0%{transform:rotate(-2deg);}
+    50%{transform:rotate(2deg);}
+    100%{transform:rotate(-2deg);}
+}
+
+/* lời chúc */
+
+.message{
+    margin-top:25px;
+
+    font-size:24px;
+
+    color:#ff4f93;
+
+    font-weight:bold;
+
+    min-height:60px;
+}
+
+/* button */
+
+.btn{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:14px 35px;
+
+    border-radius:50px;
+
+    background:#ff7eb6;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 5px 15px rgba(255,126,182,0.5);
+}
+
+.btn:hover{
+    transform:scale(1.08);
+}
+
+/* nhạc */
+
+.music{
+    margin-top:20px;
+    font-size:14px;
+    color:#777;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+    h1{
+        font-size:42px;
+    }
+
+    .subtitle{
+        font-size:18px;
+    }
+
+    .message{
+        font-size:20px;
+    }
+
+    .photo-box img{
+        width:220px;
+        height:220px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- card -->
+
+<div class="card">
+
+    <div class="badge">🎓</div>
+
+    <h1>Chúc Mừng Tốt Nghiệp</h1>
+
+    <div class="subtitle">
+        Một hành trình khép lại ✨<br>
+        Một tương lai mới bắt đầu 💖
+    </div>
+
+    <div class="photo-box">
+
+        <!-- thay ảnh của bạn tại đây -->
+
+        <img src="https://i.pinimg.com/736x/f6/5c/34/f65c34c2b72fd0b9177a0bcd6a52f5d2.jpg">
+
+    </div>
+
+    <div class="message" id="typing"></div>
+
+    <a class="btn" href="#">
+        🌸 Keep Shining 🌸
+    </a>
+
+    <div class="music">
+        🎵 Graduation Day
+    </div>
+
+</div>
+
+<!-- nhạc -->
+
+<audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* hiệu ứng gõ chữ */
+
+const text =
+"Chúc bạn luôn hạnh phúc, thành công và tỏa sáng trên con đường phía trước 💕";
+
+let index = 0;
+
+function typeText(){
+
+    if(index < text.length){
+
+        document.getElementById("typing").innerHTML += text.charAt(index);
+
+        index++;
+
+        setTimeout(typeText, 60);
+    }
+}
+
+typeText();
+
+/* tạo sao */
+
+for(let i=0;i<80;i++){
+
+    let star = document.createElement("div");
+
+    star.classList.add("star");
+
+    star.style.left = Math.random()*100 + "vw";
+
+    star.style.top = Math.random()*100 + "vh";
+
+    star.style.animationDuration =
+        (Math.random()*3+2) + "s";
+
+    document.body.appendChild(star);
+}
+
+/* tạo tim bay */
+
+const hearts = ["💖","💕","💗","🌸"];
+
+function createHeart(){
+
+    let heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML =
+        hearts[Math.floor(Math.random()*hearts.length)];
+
+    heart.style.left =
+        Math.random()*100 + "vw";
+
+    heart.style.animationDuration =
+        (Math.random()*5+5)+"s";
+
+    heart.style.fontSize =
+        (Math.random()*20+15)+"px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },10000);
+}
+
+setInterval(createHeart,500);
+
+</script>
+
+</body>
+</html>
