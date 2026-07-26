@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Lottie</title>
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js" type="module"></script>
+</head>
+<body>
+
+    <!-- 1. Removed autoplay and loop, added an ID and a pointer cursor -->
+    <dotlottie-wc 
+        id="gift-animation" 
+        src="gift.lottie" 
+        style="width: 300px; height: 300px; cursor: pointer;">
+    </dotlottie-wc>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const player = document.getElementById('gift-animation');
+
+        player.addEventListener('click', () => {
+            // Make sure the internal animation engine is ready
+            if (player.dotLottie) {
+                // 1. Reset back to the very first frame
+                player.dotLottie.setFrame(0);
+                
+                // 2. Play the animation
+                player.dotLottie.play();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
