@@ -6,13 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Rubik+Maze&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Oooh+Baby&family=Rubik+Maze&display=swap"
+        rel="stylesheet">
     <title>Thiệp Tốt Nghiệp Cute</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js" type="module"></script>
     <style>
+.oooh-baby-regular {
+  font-family: "Oooh Baby", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
         .rubik-maze-regular {
             font-family: "Rubik Maze", system-ui;
             font-weight: 400;
@@ -579,13 +587,14 @@
 
         /* tạo tim bay */
 
-        const hearts = ["💖", "💕", "💗", "🌸"];
+        const hearts = ["💖", "💕", "💗", "🌸", "Xinh dep"];
 
         function createHeart() {
 
             let heart = document.createElement("div");
 
             heart.classList.add("heart");
+            heart.classList.add("oooh-baby-regular");
 
             heart.innerHTML =
                 hearts[Math.floor(Math.random() * hearts.length)];
