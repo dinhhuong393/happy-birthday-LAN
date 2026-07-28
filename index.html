@@ -128,20 +128,36 @@
             box-sizing: border-box;
         }
 
+        @property --bg-grad-angle {
+        syntax: '<angle>';
+        initial-value: 0deg;
+        inherits: false;
+        }
+
+        @keyframes rotate-gradient {
+        0% {
+            --bg-grad-angle: 0deg;
+        }
+        100% {
+            --bg-grad-angle: 360deg;
+        }
+        }
+
         body {
             height: 100vh;
             overflow: hidden;
             font-family: 'Quicksand', sans-serif;
 
-            background: linear-gradient(135deg,
+            background: linear-gradient(var(--bg-grad-angle),
                     #ffd6e7,
                     #ffeef5,
-                    #fff7fb);
+                    #ffffff);
 
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
+            animation: rotate-gradient 60s linear infinite;
         }
 
         /* sao lấp lánh */
