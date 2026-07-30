@@ -14,11 +14,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js" type="module"></script>
     <style>
-.oooh-baby-regular {
-  font-family: "Oooh Baby", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
+        .oooh-baby-regular {
+            font-family: "Oooh Baby", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
 
 
         .rubik-maze-regular {
@@ -129,18 +129,19 @@
         }
 
         @property --bg-grad-angle {
-        syntax: '<angle>';
-        initial-value: 0deg;
-        inherits: false;
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
         }
 
         @keyframes rotate-gradient {
-        0% {
-            --bg-grad-angle: 0deg;
-        }
-        100% {
-            --bg-grad-angle: 360deg;
-        }
+            0% {
+                --bg-grad-angle: 0deg;
+            }
+
+            100% {
+                --bg-grad-angle: 360deg;
+            }
         }
 
         body {
@@ -413,10 +414,19 @@
                 // Make sure the internal animation engine is ready
                 if (player.dotLottie) {
                     setTimeout(() => {
-                        console.log('hello')
-
                         document.getElementById('gift-animation').style.display = 'none'
                         document.getElementById('main-card').style.display = 'block'
+
+                        incrOpacity = setInterval(() => {
+                            mainCard = document.getElementById('main-card')
+                            if (mainCard.style.opacity !== '1') {
+                                mainCard.style.opacity = Number(mainCard.style.opacity) + 0.05
+                            }
+                            else {
+                                clearInterval(incrOpacity)
+                            }
+                        }, 50)
+
                         document.getElementById('calendar-container').style.display = 'block'
 
                         const audio = document.getElementById('hpbd-audio');
@@ -428,8 +438,28 @@
                         });
 
                         setTimeout(() => {
-                            document.getElementById('calendar-container').style.display = 'none'
-                            document.getElementById('main-card-content').style.visibility = 'visible'
+                            decrOpacity = setInterval(() => {
+                                mainCard = document.getElementById('calendar-container')
+                                if (mainCard.style.opacity !== '0') {
+                                    mainCard.style.opacity = Number(mainCard.style.opacity) - 0.05
+                                }
+                                else {
+                                    clearInterval(decrOpacity)
+                                    document.getElementById('calendar-container').style.display = 'none'
+                                    document.getElementById('main-card-content').style.visibility = 'visible'
+
+                                    incrOpacity = setInterval(() => {
+                                        mainCard = document.getElementById('main-card-content')
+                                        if (mainCard.style.opacity !== '1') {
+                                            mainCard.style.opacity = Number(mainCard.style.opacity) + 0.05
+                                        }
+                                        else {
+                                            clearInterval(incrOpacity)
+                                        }
+                                    }, 50)
+                                }
+                            }, 50)
+
                         }, 2000)
                     }, 2000);
 
@@ -444,7 +474,7 @@
     </script>
     <!-- card -->
 
-    <div class="card" id="main-card" style="display: none;">
+    <div class="card" id="main-card" style="display: none; opacity: 0;">
 
         <div id="main-card-header">
             <div class="badge">🎓</div>
@@ -454,7 +484,7 @@
                 ❤️DÌIU - TRÚC LAN💖
             </div>
         </div>
-        <div id="calendar-container" style="display: none; position: fixed; width: 100vh; margin-left: 18px;">
+        <div id="calendar-container" style="display: none; position: fixed; width: 100vh; margin-left: 18px; opacity: 1;">
             <div class="calendar" id="calendar-inner" style="margin: 0 auto;">
                 <div class="calendar-header">
                     August 2026
@@ -530,7 +560,7 @@
             </div>
         </div>
 
-        <div id="main-card-content" style="visibility: hidden;">
+        <div id="main-card-content" style="visibility: hidden; opacity: 0;">
 
             <div class="photo-box">
 
@@ -604,10 +634,10 @@
         /* tạo tim bay */
 
         const hearts = ["💖", "💕", "💗", "🌸", "Xinh dep",
-        "Always beautiful ✨",
-        "Always happy 💕",
-        "Thành công💼",
-        "Love you 💖" ];
+            "Always beautiful ✨",
+            "Always happy 💕",
+            "Thành công💼",
+            "Love you 💖"];
 
         function createHeart() {
 
