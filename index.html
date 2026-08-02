@@ -46,10 +46,11 @@
 
         .calendar {
             background-color: white;
-            width: 350px;
+            width: 100%;
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            height: 100%;
         }
 
         .calendar-header {
@@ -402,6 +403,17 @@
                 height: 220px;
             }
         }
+
+        #calendar-container {
+            width: 45%;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #calendar-container {
+                width: 100%;
+                height: 70%;
+            }
+        }
     </style>
 </head>
 
@@ -477,7 +489,7 @@
     </script>
     <!-- card -->
 
-    <div class="card" id="main-card" style="display: none; opacity: 0;">
+    <div class="card" id="main-card" style="display: none; opacity: 0; height: 90vh;">
 
         <div id="main-card-header">
             <div class="badge">🎓</div>
@@ -487,7 +499,7 @@
                 ❤️DÌIU - TRÚC LAN💖
             </div>
         </div>
-        <div id="calendar-container" style="display: none; position: fixed; width: 100vh; margin-left: 18px; opacity: 1;">
+        <div id="calendar-container" style="display: none; opacity: 1; margin: 0 auto;">
             <div class="calendar" id="calendar-inner" style="margin: 0 auto;">
                 <div class="calendar-header">
                     August 2026
