@@ -152,14 +152,14 @@
 
             background: linear-gradient(var(--bg-grad-angle),
                     #ffd6e7,
-                    #ffeef5,
+                    #fbf6f8,
                     #ffffff);
 
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-            animation: rotate-gradient 60s linear infinite;
+            animation: rotate-gradient 5s linear infinite;
         }
 
         /* sao lấp lánh */
@@ -648,10 +648,10 @@
 
         /* tạo tim bay */
 
-        const hearts = ["💖", "💕", "💗", "🌸", "Xinh dep",
-            "Beautiful ✨",
+        const hearts = ["💖", "💕", "💗", "🌸", "💖",
+            "Happy Birthday 🎂",
             "Happy 💕",
-            "Thành công💼",
+            "Success💼",
             "Love you 💖"];
 
         function createHeart() {
@@ -661,23 +661,26 @@
             heart.classList.add("heart");
             heart.classList.add("oooh-baby-regular");
 
+            //Lấy ngẫu nhiên 1 phần tử trong mảng hearts
+
             heart.innerHTML =
                 hearts[Math.floor(Math.random() * hearts.length)];
-
+            
             heart.style.left =
                 Math.random() * 100 + "vw";
 
             heart.style.animationDuration =
-                (Math.random() * 5 + 5) + "s";
+                (Math.random() * 3 + 5) + "s";
 
             heart.style.fontSize =
-                (Math.random() * 20 + 15) + "px";
+                (Math.random() * 20 + 18) + "px";
 
             document.body.appendChild(heart);
 
             setTimeout(() => {
                 heart.remove();
-            }, 10000);
+            }, 70000);
+    
         }
 
         setInterval(createHeart, 500);
