@@ -33,6 +33,35 @@
             font-style: normal;
         }
 
+        ////////////////////
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lora:ital,wght@0,400..700;1,400..700&family=Oooh+Baby&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+Maze&display=swap" rel="stylesheet">
+
+        .pt-serif-regular {
+        font-family: "PT Serif", serif;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        .pt-serif-bold {
+        font-family: "PT Serif", serif;
+        font-weight: 700;
+        font-style: normal;
+        }
+
+        .pt-serif-regular-italic {
+        font-family: "PT Serif", serif;
+        font-weight: 400;
+        font-style: italic;
+        }
+
+        .pt-serif-bold-italic {
+        font-family: "PT Serif", serif;
+        font-weight: 700;
+        font-style: italic;
+        }
+        ///////////////////////////
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -280,14 +309,14 @@
         }
 
         h1 {
-            font-size: 58px;
+            font-size: 54px;
             color: #ed0202;
             margin-bottom: 15px;
             text-shadow: 0 0 1px rgb(45 39 39 / 90%);
         }
 
         .subtitle {
-            font-size: 35px;
+            font-size: 33px;
             color: #ed0202;
             margin-bottom: 25px;
             line-height: 1.7;
@@ -337,11 +366,19 @@
 
             font-size: 24px;
 
-            color: #ff4f93;
+            color: #ed0202;
 
-            font-weight: bold;
+           font-weight: 700;
 
             min-height: 60px;
+          
+            font-family: "PT Serif", serif;
+            font-size: 26px;
+        
+       
+            line-height: 1.8;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(255, 105, 180, 0.2)
         }
 
         /* button */
@@ -608,9 +645,11 @@
     <script>
 
         /* hiệu ứng gõ chữ */
+        const typing = document.getElementById("typing");
+        typing.classList.add("pt-serif-regular");
 
         const text =
-            "Chúc Dì luôn hạnh phúc, thành công và tỏa sáng trên con đường phía trước 💕";
+            "Chúc Dì thật nhiều sức khỏe, luôn hạnh phúc và giữ mãi nụ cười rạng rỡ trên môi nhé💕";
 
         let index = 0;
 
