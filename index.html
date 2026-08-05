@@ -356,23 +356,36 @@
         /* lời chúc */
 
         .message {
-            margin-top: 35px;
+            margin-top: 30px;
 
             font-size: 24px;
 
-            color: #ed0202;
+            color: #3b3232;
 
            font-weight: 700;
 
-            min-height: 60px;
+            min-height: 1.5;
           
             font-family: "PT Serif", serif;
-            font-size: 22px;
+            font-size: 20px;
         
        
-            line-height: 1.2;
+            line-height: 1.5;
             letter-spacing: 1px;
             text-shadow: 0 2px 10px rgba(255, 105, 180, 0.2)
+        }
+
+        /* Dòng lời chúc phụ bên dưới */ 
+        .message-context { 
+            margin-top: 10px; 
+            margin-bottom: 20px; 
+            font-family: "PT Serif", 
+            serif; 
+            font-size: 20px; 
+            color: #3b3232; 
+            font-weight: 600; 
+            line-height: 1.5; 
+            letter-spacing: 0.5px; 
         }
 
         /* button */
@@ -381,9 +394,9 @@
 
             display: inline-block;
 
-            margin-top: 20px;
+            margin-top: 0px;
 
-            padding: 14px 35px;
+            padding: 8px 18px;
 
             border-radius: 50px;
 
@@ -408,7 +421,7 @@
         /* nhạc */
 
         .music {
-            margin-top: 15px;
+            margin-top: 0px;
             font-size: 14px;
             color: #777;
         }
@@ -635,6 +648,9 @@
             </div>
 
             <div class="message" id="typing"></div>
+            
+            <!-- Lời chúc phụ --> 
+            <div class="message-context" id="typing-context"></div>
 
             <a class="btn" href="#">
                 🌸 Keep Shining 🌸
@@ -658,12 +674,18 @@
 
         /* hiệu ứng gõ chữ */
         const typing = document.getElementById("typing");
+        const typingContext = document.getElementById("typing-context");
+
         typing.classList.add("pt-serif-regular");
+        typingContext.classList.add("pt-serif-regular");
 
         const text =
             "Chúc \"Phú Bà\" của toii lúc nào cũng xinh đẹp và hạnh phúc nhéeee💕";
 
+        const textContext = "Đặc biệt là yêu thương toii nhiều hơnnn❤️❤️❤️";
+
         let index = 0;
+        let indexContext = 0;
 
         function typeText() {
 
@@ -674,9 +696,21 @@
                 index++;
 
                 setTimeout(typeText, 60);
+            } else {
+                setTimeout(() => {
+                    typeContext();
+                }, 500);
             }
         }
 
+        /* Gõ lời chúc phụ */
+        function typeContext() {
+            if (indexContext < textContext.length) {
+                typingContext.innerHTML += textContext.charAt(indexContext);
+                indexContext++;
+                setTimeout(typeContext, 50);
+            }
+        }
         typeText();
 
         /* tạo sao */
