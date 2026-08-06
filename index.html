@@ -12,7 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js" type="module"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Lora:ital,wght@0,400..700;1,400..700&family=Oooh+Baby&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+Maze&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lobster&family=Lora:ital,wght@0,400..700;1,400..700&family=Oooh+Baby&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+Maze&display=swap"
+        rel="stylesheet">
     <style>
         .oooh-baby-regular {
             font-family: "Oooh Baby", cursive;
@@ -34,27 +36,27 @@
         }
 
         .pt-serif-regular {
-        font-family: "PT Serif", serif;
-        font-weight: 400;
-        font-style: normal;
+            font-family: "PT Serif", serif;
+            font-weight: 400;
+            font-style: normal;
         }
 
         .pt-serif-bold {
-        font-family: "PT Serif", serif;
-        font-weight: 700;
-        font-style: normal;
+            font-family: "PT Serif", serif;
+            font-weight: 700;
+            font-style: normal;
         }
 
         .pt-serif-regular-italic {
-        font-family: "PT Serif", serif;
-        font-weight: 400;
-        font-style: italic;
+            font-family: "PT Serif", serif;
+            font-weight: 400;
+            font-style: italic;
         }
 
         .pt-serif-bold-italic {
-        font-family: "PT Serif", serif;
-        font-weight: 700;
-        font-style: italic;
+            font-family: "PT Serif", serif;
+            font-weight: 700;
+            font-style: italic;
         }
 
         body {
@@ -65,6 +67,11 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
         }
 
         .calendar {
@@ -181,7 +188,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
             animation: rotate-gradient 5s linear infinite;
         }
 
@@ -221,7 +227,7 @@
             bottom: -20px;
             font-size: 20px;
             animation: floatHeart linear infinite;
-            opacity: 0.7;
+            opacity: 0;
         }
 
         @keyframes floatHeart {
@@ -362,30 +368,30 @@
 
             color: #3b3232;
 
-           font-weight: 700;
+            font-weight: 700;
 
             min-height: 1.5;
-          
+
             font-family: "PT Serif", serif;
             font-size: 20px;
-        
-       
+
+
             line-height: 1.5;
             letter-spacing: 1px;
             text-shadow: 0 2px 10px rgba(255, 105, 180, 0.2)
         }
 
-        /* Dòng lời chúc phụ bên dưới */ 
-        .message-context { 
-            margin-top: 10px; 
-            margin-bottom: 20px; 
-            font-family: "PT Serif", 
-            serif; 
-            font-size: 20px; 
-            color: #3b3232; 
-            font-weight: 600; 
-            line-height: 1.5; 
-            letter-spacing: 0.5px; 
+        /* Dòng lời chúc phụ bên dưới */
+        .message-context {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-family: "PT Serif",
+                serif;
+            font-size: 20px;
+            color: #3b3232;
+            font-weight: 600;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
         }
 
         /* button */
@@ -443,8 +449,9 @@
             }
 
             .photo-box img {
-                width: 220px;
-                height: 220px;
+                width: 70%;
+                height: unset;
+                aspect-ratio: 1 / 1;
             }
         }
 
@@ -452,21 +459,25 @@
             width: 45%;
         }
 
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: 768px) {
             #calendar-container {
                 width: 100%;
                 height: 70%;
             }
 
-        #left-hpbd {
-            margin-right: 0;
-            display: block;
-        }
+            .mobile-hide {
+                display: none;
+            }
 
-        #right-hpbd {
-            margin-left: 0;
-            display: block;
-        }
+            #left-hpbd {
+                margin-right: 0;
+                display: block;
+            }
+
+            #right-hpbd {
+                margin-left: 0;
+                display: block;
+            }
         }
 
         #left-hpbd {
@@ -532,6 +543,7 @@
                                         }
                                         else {
                                             clearInterval(incrOpacity)
+                                            finalScreen()
                                         }
                                     }, 50)
                                 }
@@ -556,10 +568,10 @@
         <div id="main-card-header">
             <div class="badge">🎓</div>
 
-            <h1 class="lobster-regular"><span id="left-hpbd">Chúc Mừng</span><span id="right-hpbd">Sinh Nhật</span</h1>
-            <div class="subtitle rubik-maze-regular">
-                ❤️DÌIU - TRÚC LAN💖
-            </div>
+            <h1 class="lobster-regular"><span id="left-hpbd">Chúc Mừng</span><span id="right-hpbd">Sinh Nhật</span< /h1>
+                    <div class="subtitle rubik-maze-regular">
+                        ❤️DÌIU - TRÚC LAN💖
+                    </div>
         </div>
         <div id="calendar-container" style="display: none; opacity: 1; margin: 0 auto;">
             <div class="calendar" id="calendar-inner" style="margin: 0 auto;">
@@ -648,15 +660,15 @@
             </div>
 
             <div class="message" id="typing"></div>
-            
-            <!-- Lời chúc phụ --> 
+
+            <!-- Lời chúc phụ -->
             <div class="message-context" id="typing-context"></div>
 
-            <a class="btn" href="#">
-                🌸 Keep Shining 🌸
+            <a class="btn mobile-hide" href="#">
+                🌸 Be Happy 🌸
             </a>
 
-            <div class="music">
+            <div class="music mobile-hide">
                 🎵 Happy Birthday
             </div>
         </div>
@@ -672,46 +684,48 @@
 
     <script>
 
-        /* hiệu ứng gõ chữ */
-        const typing = document.getElementById("typing");
-        const typingContext = document.getElementById("typing-context");
+        finalScreen = () => {
+            /* hiệu ứng gõ chữ */
+            const typing = document.getElementById("typing");
+            const typingContext = document.getElementById("typing-context");
 
-        typing.classList.add("pt-serif-regular");
-        typingContext.classList.add("pt-serif-regular");
+            typing.classList.add("pt-serif-regular");
+            typingContext.classList.add("pt-serif-regular");
 
-        const text =
-            "Chúc \"Phú Bà\" của toii lúc nào cũng xinh đẹp và hạnh phúc nhéeee💕";
+            const text =
+                "Chúc \"Phú Bà\" của toii lúc nào cũng xinh đẹp và hạnh phúc nhéeee💕";
 
-        const textContext = "Đặc biệt là yêu thương toii nhiều hơnnn❤️❤️❤️";
+            const textContext = "Đặc biệt là yêu thương toii nhiều hơnnn❤️❤️❤️";
 
-        let index = 0;
-        let indexContext = 0;
+            let index = 0;
+            let indexContext = 0;
 
-        function typeText() {
+            function typeText() {
 
-            if (index < text.length) {
+                if (index < text.length) {
 
-                document.getElementById("typing").innerHTML += text.charAt(index);
+                    document.getElementById("typing").innerHTML += text.charAt(index);
 
-                index++;
+                    index++;
 
-                setTimeout(typeText, 60);
-            } else {
-                setTimeout(() => {
-                    typeContext();
-                }, 500);
+                    setTimeout(typeText, 60);
+                } else {
+                    setTimeout(() => {
+                        typeContext();
+                    }, 500);
+                }
             }
-        }
 
-        /* Gõ lời chúc phụ */
-        function typeContext() {
-            if (indexContext < textContext.length) {
-                typingContext.innerHTML += textContext.charAt(indexContext);
-                indexContext++;
-                setTimeout(typeContext, 50);
+            /* Gõ lời chúc phụ */
+            function typeContext() {
+                if (indexContext < textContext.length) {
+                    typingContext.innerHTML += textContext.charAt(indexContext);
+                    indexContext++;
+                    setTimeout(typeContext, 50);
+                }
             }
+            typeText();
         }
-        typeText();
 
         /* tạo sao */
 
